@@ -1,14 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect, useState} from "react";
+import {getUsers} from "./services/API";
 
-function App() {
-  return (
+export default function App() {
+
+   let [users, setUsers] = useState([]);
+   useEffect(() => {
+       getUsers().then(response =>{
+           setUsers(response);
+
+       })
+       
+   },[]);
+
+
+
+
+    return (
       <div>
-        hello okten
+
 
       </div>
-
   );
 }
 
-export default App;
+
