@@ -1,34 +1,28 @@
 import {useEffect, useState} from "react";
-import {getUser, getUsers} from "./services/API";
-import Users from "./components/users/Users";
-import UserDetails from "./components/user-details/UserDetails";
+import {getPosts} from "./services/API";
+import Posts from "./components/posts/Posts";
 
 export default function App() {
 
-   let [users, setUsers] = useState([]);
-   let [userDetails, setUserDetails] = useState(null);
+   let [posts, setPosts] = useState([]);
+
 
    useEffect(() => {
-       getUsers().then(response =>{
-           setUsers(response.data);
+       getPosts().then(response =>{
+           setPosts(response);
+
 
        })
        
    },[]);
 
-   function selectUser(id) {
-       console.log(id);
-       getUser(id).then(value => setUserDetails(value.data));
-   }
+
 
     return (
       <div>
 
-        <Users items = {users} selectUser={selectUser}/>
-          <hr/>
-          {
-              userDetails && <UserDetails xxx={userDetails}/>
-          }
+        <Posts posts = {posts} />
+
 
 
       </div>
