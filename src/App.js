@@ -1,14 +1,16 @@
 import {useEffect, useState} from "react";
-import {getPosts} from "./services/API";
+import {getPosts, getPost} from "./services/API";
 import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 
 export default function App() {
 
    let [posts, setPosts] = useState([]);
    let [body, setBody] = useState(null);
    
-   function print_body() {
-       
+   function print_body(id) {
+       getPost(id).then(value => setBody(value.data))
+       console.log(id);
    }
 
 
@@ -28,7 +30,7 @@ export default function App() {
       <div>
 
         <Posts items = {posts} />
-
+        <Post/>
 
 
       </div>
