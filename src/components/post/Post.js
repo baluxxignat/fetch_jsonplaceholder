@@ -1,7 +1,7 @@
-export default function Post({toPost}) {
+export default function Post({item}) {
 return (
     <div>
-        <h1>{toPost.id}</h1> - <h2>{toPost.title}</h2>
+        <h1>{item.id}</h1> - <h2>{item.title}</h2>
         <button>PUSH FOR MORE INFO</button>
     </div>
    );
