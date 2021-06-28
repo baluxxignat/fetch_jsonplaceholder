@@ -1,31 +1,14 @@
 import Post from "../post/Post";
-import {logDOM} from "@testing-library/react";
 
-export default function Posts({items}) {
+export default function Posts({items, print_body}) {
 
     return (
 
         <div>
-
         {
-            items.map(post => <Post item={post}/>)
-
+            items.map(post => <Post key = {post.id} item={post} print_body={print_body}/>)
         }
         </div>
     );
  }
 
-
-
-// export default function Users({items, selectUser}) {
-//
-//     return (
-//         <div>
-//
-//             {
-//                 items.map(u => <User key ={u.id} item={u} selectUser={selectUser} />)
-//             }
-//
-//         </div>
-//     );
-// }
