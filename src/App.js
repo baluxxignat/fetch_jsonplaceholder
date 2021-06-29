@@ -1,19 +1,24 @@
 import './App.css';
 import Users from "./components/users/Users";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {getUsers} from "./components/api/API";
 
 function App() {
 
 
   let [members, setMembers]  = useState([]);
 
-  
+  useEffect(() => {
+      getUsers().then((value => {
+          setMembers(value.data);
+      }))
+  }, [])
 
 
   return (
       <div>
 
-        <Users/>
+        <Users members = {members} />
 
       </div>
 

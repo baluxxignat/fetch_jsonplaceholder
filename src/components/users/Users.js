@@ -1,9 +1,12 @@
 import User from "../user/User";
 
-export default function Users() {
-return (
+export default function Users({members}) {
+    // console.log(members);
+    return (
     <div>
-        <User/>
+        {
+            members.map((value) => <User key={value.id} inn = {value} />)
+        }
     </div>
    );
  }
