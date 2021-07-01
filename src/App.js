@@ -1,12 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+
 
 function App() {
-  return (
-      <div>
-        hello okten
 
-      </div>
+    // let [a, setA] = useState(0);
+    // let [b, setB] = useState(0);
+
+
+  return (
+      // <div>
+      //     <button onClick={() => {setA(++a)}}>inc a - {a}</button>
+      //     <br/>
+      //     <button onClick={() => {setB(++b)}}>inc b - {b}</button>
+      // </div>
+
+    <div>
+
+
+
+    </div>
 
   );
 }
