@@ -1,10 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Users from "./components/users/Users";
+import {useEffect, useState} from "react";
+import {getUsers} from "./components/api/API";
 
 function App() {
+
+
+  let [members, setMembers]  = useState([]);
+
+  useEffect(() => {
+      getUsers().then((value => {
+          setMembers(value.data);
+          // console.log(value.data)
+      }))
+  }, [])
+
+
   return (
       <div>
-        hello okten
+
+        <Users members = {members} />
 
       </div>
 
