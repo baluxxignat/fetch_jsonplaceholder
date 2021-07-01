@@ -11,6 +11,7 @@ function App() {
   useEffect(() => {
       getUsers().then((value => {
           setMembers(value.data);
+          // console.log(value.data)
       }))
   }, [])
 
