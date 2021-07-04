@@ -1,11 +1,17 @@
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import Users from "./users/Users";
 
-function App() {
+export default function App() {
   return (
-      <div>
-
-
-      </div>
+      <Router>
+          <div>
+            <Link to={'/users'}>All Users</Link>
+            <Switch>
+                <Route path={'/users'} component={Users}/>
+            </Switch>
+          </div>
+      </Router>
   );
 }
 
-export default App;
+
