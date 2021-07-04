@@ -1,14 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import Users from "./users/Users";
 
-function App() {
+export default function App() {
   return (
-      <div>
-        hello okten
-
-      </div>
-
+      <Router>
+          <div>
+            <Link to={'/users'}>All Users</Link>
+            <Switch>
+                <Route path={'/users'} component={Users}/>
+            </Switch>
+          </div>
+      </Router>
   );
 }
 
-export default App;
+
