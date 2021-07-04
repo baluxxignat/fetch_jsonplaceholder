@@ -1,12 +1,21 @@
+import {createContext} from "react";
+import B from "./components/b/B";
 
-function App() {
+export let MyContext = createContext();    // викликаємо функцію
+
+export default function App() {
+    
+    let y = "HELLO Okten"       // будем прокидывать в С, минуя В
+    
   return (
-      <div>
+      <MyContext.Provider value={y}>
+          <div>
+            <B/>
 
-
-      </div>
+          </div>
+      </MyContext.Provider>
 
   );
 }
 
-export default App;
+
