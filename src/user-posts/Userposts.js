@@ -9,7 +9,7 @@ export default function Userposts() {
     let {id} = useParams();
     //console.log(id);
     useEffect(() => {
-         getPostsOfUser().then(response => {
+         getPostsOfUser(id).then(response => {
                          setPosts([...response])
                         console.log(response);
                     });
