@@ -7,16 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 
-const initialState = {counterValue:0}
+const initialState = {
+    counterValue:0
+}
 
 const counterReducer = (state = initialState, action) => {
+        // console.log(state, action);
 
     switch (action.type) {
         case 'INC': {
             return {...state, counterValue: state.counterValue +1};
         }
         case 'DEC': {
-            return {...state, counterValue: state.counterValue +1};
+            return {...state, counterValue: state.counterValue -1};
         }
         case 'RESET': {
             return {...state, counterValue: 0};
@@ -27,6 +30,20 @@ const counterReducer = (state = initialState, action) => {
 }
 
 const store = createStore(counterReducer);
+
+
+// console.log('NOT from subscribe  ', store.getState());
+//
+// store.subscribe(()=> {                             //метод .subscribe мы подписались на изминения
+//     console.log('from subscribe', store.getState());
+// })
+//
+// store.dispatch({                               //метод .dispatch запускает функцію counterReducer
+//     type: 'INC'
+// })
+// store.dispatch({
+//     type: 'INC'
+// })
 
 ReactDOM.render(
   <React.StrictMode>
