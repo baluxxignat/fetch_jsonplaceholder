@@ -13,9 +13,15 @@ const Child = () => {
 
 function App() {
     const dispatch = useDispatch();
+    let input = () => {
+      return document.querySelector('input').value;
+    }
+
     return (
 
         <div >
+
+
             <Child/>
 
             <div className={'d-flex'} >
@@ -32,6 +38,16 @@ function App() {
                 <button onClick={() => {
                     dispatch({type: 'RESET'})
                 }}>RESET
+                </button>
+            </div>
+
+            <div>
+
+                <input/>
+
+                <button onClick={() => {
+                    dispatch({type: 'CASTUM', payload: input})
+                }}>YOUR NUMBER
                 </button>
             </div>
 
