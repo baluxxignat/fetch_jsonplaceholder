@@ -63,6 +63,7 @@ function App() {
                     dispatch({type: 'RESET'})
                 }}>RESET
                 </button>
+
             </div>
 
             {/*<div>*/}
