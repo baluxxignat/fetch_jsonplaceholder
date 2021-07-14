@@ -1,35 +1,21 @@
-import {createRef} from "react";
+import {createRef, useState} from "react";
 
 export default function App() {
 
-    let refObject = createRef();   ////подібне до document.getElement by 'someref'..можно использовать с <div>, <span> e.t.c.
-    let myButton = createRef(); ////можем вызывать сколько угодно раз
-    function someFunction(e) {
-        e.preventDefault()
-        console.log(refObject.current.username.value);
-        console.log(myButton.current.hidden);
-    }
+    let [usernameInputState, setUsernameInputState] = useState('значення за замевченням яке можна переписати');
 
-    // function someFunction(e) {
-    //     e.preventDefault()
-    //     //// console.log(e);      эвент имеет поле таргет. т.е. форму, кот.имеет поле инпута по нейму
-    //     console.log(e.target.username.value);
-    // }
 
-    
-
+    let anyNameFunction = (e) => {
+        console.log(e.target.value);
+        setUsernameInputState(e.target.value);   ////тепер буде реагувати на зміни
+    };
     return (
       <div>
 
-          <form action={'/someUrl'} method={'post'} onSubmit={someFunction} ref={refObject}>
-                <input type={'text'} name={'username'}/>
-                <button ref={myButton}>save</button>
+          <form action={'/someUrl'} method={'post'} >
+                <input type={'text'} name={'username'} value={usernameInputState} onChange={anyNameFunction}/>
+                <button>save</button>
           </form>
-
-          {/*<form action={'/someUrl'} method={'post'} onSubmit={someFunction}>*/}
-          {/*    <input type={'text'} name={'username'}/>*/}
-          {/*    <button>save</button>*/}
-          {/*</form>*/}
 
       </div>
   );
